@@ -3,13 +3,25 @@ import 'package:flutter/material.dart';
 import '../../comman/spacer/horizontal_spacer.dart';
 
 class SampleButton extends StatefulWidget {
+  //Used for setting the color of the button and button shadow
   final Color? color;
+
+  //Used for displaying the text inside the button
   final String? text;
+
+  //Used for setting up the color of the text
   final Color? textColor;
+
+  //Used for setting the border radius on all sides of the button
   final double? borderRadius;
+
+  //Used for showing pre-widget before text widget example - Icon widget
   final Widget? preWidget;
+
+  //Used for showing post-widget after text widget example - Icon widget
   final Widget? postWidget;
 
+  //SampleButton constructor
   const SampleButton({
     Key? key,
     this.color = Colors.blue,
