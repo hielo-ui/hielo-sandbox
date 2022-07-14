@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hielo_sandbox/features/buttons/sample_button.dart';
+
+import 'features/buttons/sample_button.dart';
 
 void main() {
   runApp(const MyApp());

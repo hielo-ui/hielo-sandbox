@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 
 class SampleButton extends StatefulWidget {
-  const SampleButton({Key? key}) : super(key: key);
+  final Color? color;
+  final String? text;
+  final Color? textColor;
+  final double? borderRadius;
+
+  const SampleButton({
+    Key? key,
+    this.color = Colors.blue,
+    this.text = "Download",
+    this.borderRadius = 8.0,
+    this.textColor = Colors.white,
+  }) : super(key: key);
 
   @override
   State<SampleButton> createState() => _SampleButtonState();
@@ -10,6 +21,30 @@ class SampleButton extends StatefulWidget {
 class _SampleButtonState extends State<SampleButton> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Container(
+          decoration: BoxDecoration(
+            color: widget.color,
+            borderRadius: BorderRadius.circular(widget.borderRadius as double),
+            boxShadow: [
+              BoxShadow(
+                color: widget.color as Color,
+                blurRadius: 6.0,
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Text(
+              widget.text as String,
+              style: TextStyle(
+                color: widget.textColor,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
