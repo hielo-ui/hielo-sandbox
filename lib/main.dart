@@ -24,7 +24,10 @@ class TestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: SampleButton(),
+        child: SampleButton(
+          postWidget: Icon(Icons.abc),
+          preWidget: Icon(Icons.abc),
+        ),
       ),
     );
   }

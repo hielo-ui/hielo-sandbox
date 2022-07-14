@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../../comman/spacer/horizontal_spacer.dart';
+
 class SampleButton extends StatefulWidget {
   final Color? color;
   final String? text;
   final Color? textColor;
   final double? borderRadius;
+  final Widget? preWidget;
+  final Widget? postWidget;
 
   const SampleButton({
     Key? key,
@@ -12,6 +16,8 @@ class SampleButton extends StatefulWidget {
     this.text = "Download",
     this.borderRadius = 8.0,
     this.textColor = Colors.white,
+    this.preWidget = const SizedBox(),
+    this.postWidget = const SizedBox(),
   }) : super(key: key);
 
   @override
@@ -36,11 +42,20 @@ class _SampleButtonState extends State<SampleButton> {
           ),
           child: Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Text(
-              widget.text as String,
-              style: TextStyle(
-                color: widget.textColor,
-              ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                widget.preWidget as Widget,
+                HorizontalSpacer(context: context, width: 0.02),
+                Text(
+                  widget.text as String,
+                  style: TextStyle(
+                    color: widget.textColor,
+                  ),
+                ),
+                HorizontalSpacer(context: context, width: 0.02),
+                widget.postWidget as Widget,
+              ],
             ),
           ),
         ),
